@@ -53,6 +53,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
                         // self.feeds = responseFieldDictionary["posts"] as! [NSDictionary]
                         
                         self.posts = responseFieldDictionary["posts"] as! [NSDictionary]
+                        self.tableView.reloadData()
                     }
                 }
         });
@@ -74,7 +75,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell")
         
         let post = posts[indexPath.row]
-        self.tableView.reloadData()
+       
         
         if let photos = post.value(forKeyPath: "photos") as? [NSDictionary]
         {
